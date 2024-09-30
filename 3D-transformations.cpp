@@ -54,7 +54,7 @@ void RotateX(float angle) // parallel to x
 
 void multiplyM() {
     for (int i=0;i<8;i++){
-        for (int j=0;j>3;j++){
+        for (int j=0;j<3;j++){
             output[i][j]=0;
             for (int k=0;k<3;k++){
                 output[i][j]=output[i][j]+input[i][k]*theMatrix[k][j];
@@ -139,13 +139,9 @@ void display(){
             multiplyM();
             break;
         case 3:
-            switch (choiceRot) {
-                case 1:
-                    RotateX(angle);
-                    break;
-                default:
-                    break;
-            }
+            RotateX(angle);
+            multiplyM();
+            break;
         default:
             multiplyM();
             break;
